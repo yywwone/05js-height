@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		函数进阶：
+			1 函数定义：
+				01 函数声明
+				02函数表达式
+				03函数的构造函数声明方式 new Function()
+			
+			函数声明和函数表达式的区别：
+			2 在条件判断语句里面  
+				添加函数声明 不同浏览器解析不一样
+				这种写法不太规范 所以最好统一使用函数表达式 在if语句中写
+				var bool = false;
+				var f;
+				if(bool){
+					f = function (){}
+				}else {
+					f = function (){}
+				}
+				f();
+			3 函数到底是什么 要取决于用什么方式调用
+				function fn(){
+					
+				}
+				fn(); 普通函数
+				fn.call();// 把函数当成对象来用了
+				new fn();//把函数当构造函数来用了
+			4 所有的this指向都在这个表格里
+			
+			5所有函数都是Function 的实例
+			Function也是Function的实例
+			
+			6 三种方法更改函数内部this指向
+			  fn.call
+			  fn.apply
+			  	
+			  <!--var fn2 = fn.bind(obj);
+			  fn2();
+			  
+			  fn.bind(obj,实参1，实参2)(实参3);-->
+			  
+			7 函数的其他成员：
+				arguments： 实参的集合列表
+				caller: 当前函数被哪个函数所调用
+				length：形参的个数
+				name ： 函数的名称
+			8 回调函数：
+				把函数当成参数来传递
+				
+				扩展了一下   forEach方法如何实现 的
+			9 函数可以被另一个函数返回
+			
+			闭包： 概念
+				 形式会写
+				 
+				 银行取钱
+				 
+				 function fn(){
+				 	var a = 15
+				 	return function(){
+				 		a++;
+				 		console.log(a)
+				 	}	
+				 }
+				 var abc = fn();
+				 abc();// 16
+				 abc();17
+				 abc();18
+				 //==============
+				 fn()(); //16
+				 fn()();16
+				 fn()();16
+				 
+				 
+				 // fn()()()();
+			两个思考题
+			
+			递归：什么是递归
+			老和尚讲故事
+			
+			阶乘的递  分析  写了递归的函数
+			
+			兔子问题  斐波那契数列归 如何使用递归去做？
+				分析 画图   书写了求兔子的递归函数
+	</body>
+</html>

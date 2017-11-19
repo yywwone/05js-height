@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//任意字符
+//			var str = "cbz";
+//			var re = /[abc]/;
+//			if(re.test(str)) {
+//				alert("匹配到了")
+//			} else {
+//				alert("没有匹配到")
+//			}
+//				var str = "out";
+//				var re = /o[usb]t/;
+//				if(re.test(str)) {
+//					alert("匹配到了")
+//				} else {
+//					alert("没有匹配到")
+//				}
+			//范围  [0-9] [a-z] [a-zA-Z] [0-5]
+			var str = "id4a"; // id(0--3 6--9)a    除了4 其他都可以 
+			//var re = /id[0-3|5-9]a/;
+			var re = /id[^4]a/;  // ^ 在[]里面 的意思 是 取反 
+			if(re.test(str)) {
+				alert("匹配到了")
+			} else {
+				alert("没有匹配到")
+			}
+			
+			// 排除 [^a]  排除a
+			
+			//组合：
+			// [a-z0-9A-Z] 其中任意一个 
+			
+			// 偷小说
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

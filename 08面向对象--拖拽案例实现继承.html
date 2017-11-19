@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box,#box2 {
+				width: 100px;
+				height: 100px;
+				background-color:red;
+				position: absolute;
+			}
+			#box2 {
+				background-color:blue;
+				left: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box2"></div>
+	</body>
+	<script type="text/javascript">
+		(function(window){
+			// "分治思想"
+			function Drag(id){
+				this.obj = document.getElementById(id);
+				this.disX = 0;
+				this.disY = 0;
+				this.init();
+			}
+			Drag.prototype.init = function() {
+				var that = this;
+				this.obj.onmousedown = function(e){
+					e = e || event;
+					
+					// 按下鼠标 做一件事情 获取固定距离
+					that.disX = e.clientX - this.offsetLeft; 
+					that.disY = e.clientY - this.offsetTop;
+					
+					// 按下鼠标之后  移动鼠标  （在document身上）
+					document.onmousemove = function(e){
+						that.fnMove(e);
+					};
+					document.onmouseup = that.fnUp;
+					//return false;
+				}
+				
+			}
+			
+			
+			Drag.prototype.fnMove = function(e){
+				e = e || event;
+				// 在移动过程当中  让div跟着走
+				console.log(this);
+				this.obj.style.left = e.clientX - this.disX + "px";
+				this.obj.style.top = e.clientY - this.disY + "px";
+			}
+			
+			Drag.prototype.fnUp = function() {
+				// 弹起鼠标  取消移动和弹起事件
+				document.onmousemove = document.onmouseup = null;
+			}
+			
+			window.Drag = Drag;
+		})(window);
+		
+		var drag1 = new Drag('box');
+	</script>
+	<script type="text/javascript">
+		(function(window,Drag){
+			
+			function Drag2(id) {
+				// 借用父级的构造函数实现构造函数内部属性继承
+				Drag.call(this,id);
+			}
+			// 通过forin遍历  拿过来父级的原型上的方法
+			for(var attr in Drag.prototype) {
+				Drag2.prototype[attr] = Drag.prototype[attr];
+			}
+			// 现在已经有了拖拽的所有功能 但是限制范围 在移动方法里面限制  所以需要重写移动方法
+			
+			
+			Drag2.prototype.fnMove = function(e) {
+				e = e || event;
+				// 加入限制范围  只能在可视区域拖拽
+				var x = e.clientX - this.disX;
+				var y = e.clientY - this.disY;
+				var maxX = document.documentElement.clientWidth - this.obj.offsetWidth;
+				var maxY = document.documentElement.clientHeight - this.obj.offsetHeight;
+				if(x<0) {
+					x = 0
+				}
+				if(x>maxX) {
+					x = maxX;
+				}
+				if(y<0){
+					y = 0;
+				}
+				if(y > maxY){
+					y = maxY;
+				}
+				
+				
+				// 在移动过程当中  让div跟着走
+				console.log(this);
+				this.obj.style.left = x + "px";
+				this.obj.style.top = y + "px";
+				
+			}
+			
+			window.Drag2= Drag2;
+		})(window,Drag);
+		
+		// drag2也要实现和drag一样的功能 拖拽功能 但是 drag2 还要限制一下范围
+		var drag2 = new Drag2("box2");
+	</script>
+</html>

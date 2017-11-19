@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			
+			// 创建一个Iphone 手机 
+			// 属性： 颜色  价格 尺寸
+			// 方法：打电话  玩游戏   听歌
+			function Iphone(color,price,size){
+				this.color = color;
+				this.price = price;
+				this.size = size;	
+			}
+			Iphone.prototype.callPhone = function(){
+				console.log("正在打电话");
+			}
+			Iphone.prototype.playGame = function(){
+				console.log("正在玩游戏");
+			}
+			Iphone.prototype.listenning = function(){
+				console.log('正在听歌');
+			}
+			
+			var iphone1 = new Iphone("red","1000$",4.5);
+			
+			console.log(iphone1.color);
+			console.log(iphone1.price);
+			iphone1.callPhone();
+			iphone1.listenning();
+			
+			
+			 //Ipod  Itouch Iphone
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

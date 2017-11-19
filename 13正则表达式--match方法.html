@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+//			match() 用正则匹配字符,
+//			用法: 字符串.match(正则);// 在该字符串中 用match方法 按照正则的规则去匹配
+//			返回值: 如果匹配成功 则返回匹配成功后的数组
+			var str = 'haj123sdk54hask33dknalsd789';
+			
+			var re = /\d+/g;
+			
+			var result = str.match(re);// 这个方法使用完之后 它返回的是一个数组
+			console.log(result);//[123]
+			
+//			正则 默认严格区分大小写   i 忽略大小写
+//			默认 正则只要匹配成功 就不往后面匹配了 (比较懒) g global的简称
+//			g  代表的意思是 全局匹配
+
+			//+ 在正则里面  + 匹配一个或者多个   是个量词
+			
+			var str = 'abbbvdeBdbBzzsB'; // 找里面的b（这个b不管大小写）
+			// 连续的b合在一起  ["bbb","B","bB","B"]
+			var re = /b+/ig;
+			//var re = new RegExp("b+","ig");
+			
+			var result = str.match(re);
+			console.log(result);
+			
+			// test()  search()  match()
+			// 元字符  \d \D \w \W  \s \S  \b \B   .  \.
+			
+			//  两个匹配模式：
+			// i 忽略大小写  g 全局匹配
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

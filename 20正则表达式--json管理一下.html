@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.red {
+				color: red;
+			}
+			.green {
+				color: green;
+			}
+		</style>
+		<script type="text/javascript">
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		账号：<input type="text" /><span></span>
+	</body>
+	<script src="tool.js"></script>
+	<script type="text/javascript">
+		
+		var aInp= document.getElementsByTagName("input")[0];
+		var oSpan = document.getElementsByTagName("span")[0];
+		aInp.onblur = function() {
+			
+			var str = aInp.value;
+			
+			if(re.Chinese.test(str)){
+				oSpan.innerHTML = "输入正确";
+				oSpan.className = "green";
+			}else {
+				oSpan.innerHTML = "输入错误";
+				oSpan.className = "red";
+			}
+		}
+		
+		
+	</script>
+</html>

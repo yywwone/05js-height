@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*量词:
+			+  可以匹配1次或者任意次  {1,}
+			?  可以匹配0次或者1次 {0,1}
+			*  可以匹配0次到任意次 {0,}
+			
+			{n,m}  可以匹配 至少n次 至多 m次
+			{2,4}  可以匹配两次到四次
+			{2,}   可以匹配至少2次 至多任意次*/
+		//	{8}   必须匹配8次
+			
+			//定界符: ^ 在中括号外面  是代表开始位置 $ 代表结束位置
+			//qq号:正则: 纯数字   5---12位数  第一位不能为0
+//			
+//			var str = "ausb";
+//			var re = /^usb/;
+			
+		/*	var str = "145071271549"
+			
+			var reQQ = /^[1-9]\d{4,11}$/;
+			
+			if(re.test(str)){
+				alert("是qq号")
+			}else {
+				alert("不是qq号")
+			}*/
+			
+			//邮编: 6位 全是数字 
+			var post = "0460129";
+			var re = /^\d{6}$/;
+			if(re.test(post)){
+				alert("是邮编")
+			}else {
+				alert("不是邮编")
+			}
+			
+			//邮箱正则:   数字 字母 下划线 - . @qq  163  gmail yahoo .com  .cn  .net
+			//@163.com.net    .cn.net   .com.cn.net
+			var re =/^\w+@[a-z0-9]+(.[a-z]+){1,3}$/
+			
+			var re = /^[a-z0-9A-Z][\w-\.]+@[0-9a-zA-Z]{2,6}(\.[a-z]{2,3}){1,3}$/;
+			
+			//13  15  18  17
+			
+			var rePhone = /^((13[0-9])|(15[^4,\D])|(18[0-9]))\d{8}$/
+			
+			//中文姓名:
+			var re = /^[\u4e00-\u9fa5]{2,4}$/
+			
+			
+			var str5 = "   fdsafe  ";
+			
+			var re = /^\s+|\s+$/g; // trim方法  可以正则去模拟实现
+			
+			console.log("("+str5.replace(re,"")+")");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

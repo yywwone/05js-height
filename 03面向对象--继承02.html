@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			
+			// 创建一个Itouch
+			// 属性： 颜色  价格 尺寸
+			// 方法：  玩游戏   听歌
+			function Itouch(color,price,size){
+				this.color = color;
+				this.price = price;
+				this.size = size
+	
+			}
+			Itouch.prototype.playGame = function(){
+				console.log("正在玩游戏");
+			}
+			Itouch.prototype.listenToMusic = function(){
+				console.log("正在听音乐");
+			}
+			
+			var itouch1 = new Itouch("blue","200$",3.5);
+			itouch1.playGame();
+			console.log(itouch1.price);
+			
+			
+			
+			// 我想创建一个Iphone手机  我想继承Itouch的全部功能 我手机自己还有自己的功能
+			// 这种方法叫原型继承 ,
+			// 优点： 继承简单方便  但是 无法传参 需要将构造器constructor 再改回来
+			Iphone.prototype = new Itouch();
+			//Iphone.prototype.constructor = Iphone;
+			// 把Itouch构造函数new一下 然后给Iphone的原型了  原型有 Itouch的属性和方法了
+			
+			function Iphone(color){
+				
+			}
+			
+			var iphone1 = new Iphone("green");
+			iphone1.playGame();// 玩游戏
+			
+			console.log(iphone1.color);//
+			
+			
+			
+			 //Ipod  Itouch Iphone
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

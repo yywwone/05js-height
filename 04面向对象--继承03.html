@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			
+			// 创建一个Itouch
+			// 属性： 颜色  价格 尺寸
+			// 方法：  玩游戏   听歌
+			function Itouch(color,price,size){
+				this.color = color;
+				this.price = price;
+				this.size = size
+	
+			}
+			Itouch.prototype.playGame = function(){
+				console.log("正在玩游戏");
+			}
+			Itouch.prototype.listenToMusic = function(){
+				console.log("正在听音乐");
+			}
+			
+			/*var itouch1 = new Itouch("blue","200$",3.5);
+			itouch1.playGame();
+			itouch1.callPhone();
+			console.log(itouch1.price);*/
+			
+			
+			
+			// 我想创建一个Iphone手机  我想继承Itouch的全部功能 我手机自己还有自己的功能
+		
+			
+			function Iphone(color,price,size){
+				// 这里利用父级构造函数当普通函数执行一下  在执行的时候
+				//偷偷的把Itouch里面的this 改成当前Iphone里面的this了
+				// 这种方式叫 借用构造函数继承  也叫call或者apply继承
+				Itouch.call(this,color,price,size);
+				//Itouch.apply(this,[color,price,size]);// 把构造函数当普通函数执行一下
+			}
+			// 将父的原型 赋值给子iphone的原型 这样 子就有了父的原型上的方法
+			// 有问题： 赋值就会存在对象的引用关系 这个时候如果iphone自己添加了一个方法，Itouch也有了
+			Iphone.prototype = Itouch.prototype;
+			Iphone.prototype.constructor = Iphone;
+			
+			// Iphone 打电话
+			Iphone.prototype.callPhone = function(){
+				
+				console.log("正在打电话");
+			}
+			
+			var iphone1 = new Iphone("green","1200$",5);
+			//iphone1.playGame();// 玩游戏
+			
+			
+			
+			console.log(iphone1.color);//
+			console.log(iphone1.price);
+			console.log(iphone1.size);
+			iphone1.playGame();
+			iphone1.listenToMusic();
+			iphone1.callPhone();
+			 //Ipod  Itouch Iphone 
+			 // 如果使用call或者apply来继承构造函数里面的属性
+			 // 那么该如何继承构造函数的原型上面的方法？
+			 
+			 var itouch1 = new Itouch("yellow","200$",4.5);
+			 itouch1.callPhone();// 正常应该报错 
+			 itouch1.playGame();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

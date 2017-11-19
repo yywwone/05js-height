@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			textarea,#box {
+				width: 300px;
+				height: 300px;
+				border:1px solid black;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" value="提取文本内容" id="btn" /><br />
+		<textarea id="text"></textarea>
+		<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+		function $(id) {
+			return document.getElementById(id);
+		}
+		// 单击按钮 
+		$("btn").onclick = function() {
+			
+			// 获取到小说内容
+			var str = $("text").value;
+			// 想办法过滤掉标签 < style  "" class=  >
+			var re = /<[^>]+>/g;
+			
+			var newContent = str.replace(re,"");
+			$("box").innerHTML = newContent;
+		}
+		// 下来 思考  innerHTML  自己封装一个innerText方法
+		
+	</script>
+</html>

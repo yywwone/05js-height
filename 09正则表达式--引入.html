@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var str = 'haj123sdk54hask33dknalsd789';
+			//[123,54,33,789]
+			
+//			var str2 = 'a0';
+//			//"a">9 // 97>57
+//				console.log(str2.charCodeAt(1));//97  0:48 5:53 9:57
+//			if(str2>=0 && str2<=9){
+//				console.log("是数字");
+//			}else {
+//				console.log("不是数字");
+//			}
+			
+			
+			
+			// 建立一个数组 用来存那些找到的数字
+//			var arr = [];
+//			// 建立一个临时的变量 用来拼接连续的数字
+//			var temp = "";
+//			
+//			// 开循环 在str中一一看看 有没有数字
+//			for(var i = 0; i < str.length; i++) {
+//				//   当前这个字符的编码 大于等于48  并且 小于等于 57
+//				if(str[i]>="0" && str[i]<="9") {
+//					// 只要进来 就是数字
+//					temp += str[i]; //"123"
+//				} else {
+//					// 如果当前的temp里面有拼接好的 然后再把它存入数组中
+//					if(temp) {
+//						arr.push(temp);
+//						// 将当前连续的数字 拼接好的 往数组里面存进去  
+//						//立即再把清空 以便于下一次 重新拼接新的连续的数字
+//						temp = "";
+//					}
+//					
+//					
+//				}
+//				
+//				
+//			}
+//			// 为了防止 字符串末尾只有数字 它不会走else  导致没有存进去数组里面
+//			if(temp) {
+//				arr.push(temp);
+//				temp = "";
+//			}
+//			
+//			console.log(arr);
+			// 这是正则进行匹配
+			console.log(str.match(/\d+/g));
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

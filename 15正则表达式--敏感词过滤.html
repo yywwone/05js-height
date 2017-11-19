@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			
+			var str = '雾霾出现以后，空气极度的差，雾霾这种现象都是政府责任';
+			///"政府责任","差" ,"雾霾" 全部代替成*号  ||逻辑  正则里面也有或  |
+			// 正则里面 |  或的意思
+			var re = /政府责任|差|雾霾/g;
+			
+			//var result = str.replace(re,"*");
+			//console.log(result);
+			//*出现以后，空气极度的*，*这种现象都是*
+			
+//			使用方法1 :replace(正则,需要替换的字符);
+//			使用方法2 :replace(正则,可以接收一个匿名函数)
+
+			var result = str.replace(re,function($0){
+				
+				/*console.log($0);// 在该字符串中每一次匹配到的整体
+				console.log(typeof $0);
+				console.log($0.length);//2  1 2 4
+				console.log($0[0]);//*/
+				var temp = "";
+				for(var i = 0; i < $0.length; i++) {
+					
+					temp += "*";
+					
+				}
+				return temp; //"**" ,"*","**","****"
+			})
+			
+			console.log(result);
+			
+			var str = '菲称仁爱礁附近17艘中国船均在菲的监视之下'; 
+			//  "中国船" "监视之下" "菲"
+			//  *称仁爱礁附近17艘***均在*****;
+			
+			var result2 = str.replace(/中国船|监视之下|菲/g,function($0){
+				
+				var temp = "";
+				// $0 每一次匹配的整体  菲  中国船  菲  监视之下
+				for(var i = 0; i < $0.length; i++) {
+					
+					temp += "*";
+				}
+				return temp;
+				
+			})
+			
+			console.log(result2);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

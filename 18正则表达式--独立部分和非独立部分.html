@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			// \b 独立部分  开始位置  或者结束位置 或者非字符都算是独立部分
+			// \B  非独立部分
+			
+			var str = "one@two";
+			
+			var re = /\bone\b/;
+			
+			if(re.test(str)){
+				alert("可以匹配")
+			} else {
+				alert("不可以匹配")
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
